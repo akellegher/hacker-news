@@ -1,0 +1,6 @@
+<div class="item-container" id="{{item}}" ng-repeat="item in sc.storyIds | limitTo: sc.postsLimit track by item">
+    <story-item></story-item>
+</div>
+<button class="btn btn-primary" ng-click="sc.loadMore()" title="Load more items"
+    ng-show="sc.postsLimit < sc.storyIds.length">More</button>
+<scroll-btn></scroll-btn>

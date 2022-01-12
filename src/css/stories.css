@@ -1,0 +1,21 @@
+.item-container {
+    border: 0.1rem solid #d2d2d1;
+    box-shadow: 0 0 0.6rem -0.1rem rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 0.6rem -0.1rem rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 0.6rem -0.1rem rgba(0, 0, 0, 0.4);
+    border-radius: 0.3rem;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.scroll {
+    opacity: 0;
+    float: right;
+    bottom: 3rem;
+    right: 3rem;
+    transition: 0.3s all ease-in-out;
+    -o-transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}

@@ -1,0 +1,41 @@
+<h1 class="nav__header__title noselect" ng-click="hc.handleNav('#', '/')" title="Home">Hacker News</h1>
+<div class="nav">
+    <nav class="nav__menu">
+        <ul>
+            <li ng-repeat="item in hc.headerNav" class="nav__menu__item noselect"
+                ng-class="{'active': item.url === hc.url}" ng-click="hc.handleNav('#', item.url)">{{ item.name }}</li>
+        </ul>
+    </nav>
+    <div class="nav__buttons">
+        <ul>
+            <li>
+                <button class="nav__buttons__search-btn" ng-click="hc.toggleSearch(); focusInput=true"
+                    title="Search Hacker News"></button>
+            </li>
+            <li>
+                <div class="nav__buttons__hamburger-icon" ng-click="hc.toggleMobMenu()">
+                    <span></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <nav class="nav__mob-menu">
+        <ul>
+            <li ng-repeat="item in hc.headerNav"><span class="nav__mob-menu__item noselect"
+                    ng-click="hc.handleNav('#', item.url)" ng-class="{'active': item.url === hc.url}">{{ item.name
+                    }}</span>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- Search functionality would go here but is out of scope for this project -->
+<div class="search-wrapper" ng-show="hc.searchActive">
+    <div class="search-wrapper__inner">
+        <div class="search-wrapper__inner__search-input">
+            <input type="text" id="hn-search-input" placeholder="Search Hacker News..." focus-input="focusInput">
+            <div class="search-wrapper__inner__search-input__close-search">
+                <button ng-click="hc.toggleSearch()"></button>
+            </div>
+        </div>
+    </div>
+</div>

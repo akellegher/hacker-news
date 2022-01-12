@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="item-container__col-left" ng-if="item.data.type !=='job'">
+        <div class="item-container__vote">
+            <span class="arrow-up" title="upvote"></span>
+            <span class="item-container__vote__score" title="{{item.data.score}} points">{{ item.data.score }}</span>
+        </div>
+    </div>
+    <div class="item-container__col-right">
+        <div class="item-container__detail">
+            <div class="item-container__detail__info top">Posted by {{ item.data.by }} {{ item.data.time *
+                1000 | timeAgo }}</div>
+            <div class="item-container__detail__title">
+                <a ng-href="{{item.data.url}}" ng-if="item.data.url" target="_blank">{{ item.data.title }}</a>
+                <a ng-href="#/item/{{item.data.id}}" ng-if="!item.data.url">{{ item.data.title }}</a>
+                <a class="item-container__detail__info" ng-if="item.data.url"
+                    ng-href="https://{{item.data.url | domainFilter}}" target="_blank">&nbsp;({{ item.data.url |
+                    domainFilter }})</a>
+            </div>
+            <div class="item-container__detail__info" ng-if="item.data.type !=='job'">
+                <span><a href="#">hide</a></span>
+                <span ng-show="item.url === '/item/{{item.itemId}}' || item.url === '/newest'"><a
+                        href="#">past</a></span>
+                <span ng-if="item.data.descendants === 0 && item.data.type !=='job'"><a
+                        href="#/item/{{item.data.id}}">discuss</a></span>
+                <span ng-show="item.url === '/item/{{item.itemId}}'"><a href="#">favourite</a></span>
+                <span ng-if="item.data.descendants >= 1"><a href="#/item/{{item.data.id}}">{{ item.data.descendants
+                        }}
+                        comments</a></span>
+            </div>
+            <div class="item-container__detail__text" ng-bind-html="item.data.text | sanitizeHTMLFilter"
+                ng-if="item.data.text" ng-show="item.url === '/item/{{item.data.id}}'">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HackerNews" ng-controller="HomeController as hc">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Aiden Kellegher">
+    <link rel="icon" type="image/x-icon" href="favicon.gif">
+    <title>Hacker News</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/stories.css">
+    <link rel="stylesheet" href="css/stories.item.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body ng-cloak>
+    <div class="wrapper">
+        <header ng-include="'templates/header.html'" class="sticky"></header>
+        <div class="overlay" ng-show="hc.searchActive || hc.mobMenuActive"></div>
+        <div class="container">
+            <div ui-view></div>
+        </div>
+        <footer ng-include="'templates/footer.html'"></footer>
+    </div>
+    <script src="lib/angularjs/angular.min.js"></script>
+    <script src="lib/angularjs/angular-ui-router.js"></script>
+    <script src="lib/angularjs/angular-resource.min.js"></script>
+    <script src="lib/time-ago/angular-timeago-core.min.js"></script>
+    <script src="lib/time-ago/angular-timeago.min.js"></script>
+    <script src="scripts/app.module.js"></script>
+    <script src="scripts/app.config.js"></script>
+    <script src="scripts/services/stories.api.service.js"></script>
+    <script src="scripts/controllers/home.controller.js"></script>
+    <script src="scripts/controllers/stories.controller.js"></script>
+    <script src="scripts/controllers/item.controller.js"></script>
+    <script src="scripts/directives/story.item.directive.js"></script>
+    <script src="scripts/directives/focus.input.directive.js"></script>
+    <script src="scripts/directives/scrollbtn.directive.js"></script>
+    <script src="scripts/filters/sanitize.filter.js"></script>
+    <script src="scripts/filters/domain.filter.js"></script>
+</body>
+
+</html>
